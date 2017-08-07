@@ -1,0 +1,7 @@
+include \
+	"spring-cloud-service-hystrix-dashboard", \
+	"spring-cloud-service-user", \
+	"spring-cloud-service-project", \
+	"spring-cloud-service-registry", \
+	"spring-cloud-service-gateway",\
+	"spring-cloud-service-swagger" \

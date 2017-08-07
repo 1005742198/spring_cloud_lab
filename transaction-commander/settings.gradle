@@ -1,0 +1,4 @@
+include \
+	"transaction-commander-client", \
+	"transaction-commander-server", \
+	"transaction-commander-client-demo"

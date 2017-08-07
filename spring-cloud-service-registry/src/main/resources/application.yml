@@ -1,0 +1,41 @@
+---
+spring:
+  profiles:
+    active:
+    - single
+server:
+  port: 8010
+
+eureka:
+  client:
+    # 单机模式
+    register-with-eureka: false
+    fetch-registry: false
+    
+---
+spring:
+  profiles: peer1
+  application:
+    name: eureka-registry-1
+server:
+  port: 8010
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8011/eureka/
+
+---
+spring:
+  profiles: peer2
+  application:
+    name: eureka-registry-2
+server:
+  port: 8011
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8010/eureka/

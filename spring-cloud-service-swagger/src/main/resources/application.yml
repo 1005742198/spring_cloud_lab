@@ -1,0 +1,7 @@
+spring:
+  application:
+      name: SwaggerProject
+server:
+  port: 9000
+
+

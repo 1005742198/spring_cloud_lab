@@ -1,0 +1,27 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: zuulserver
+zuul:
+  retryable: true
+  #prefix: /api
+  #stripPrefix: false
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: service-ribbon
+    api-b:
+      path: /api-b/**
+      serviceId: service-feign
+    api-material: 
+      path: /material/**
+      serviceId: materialserver
+      #stripPrefix: false
+#    api-user:
+#      path: /user/**
+#      serviceId: userserver

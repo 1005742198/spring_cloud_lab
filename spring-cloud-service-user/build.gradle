@@ -1,0 +1,101 @@
+
+version = '0.0.1-SNAPSHOT'
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.RELEASE'
+		mavenBom 'com.huajin.springcloud:huajin-dependencies:0.0.1-SNAPSHOT'
+	}
+	
+	resolutionStrategy {
+		cacheChangingModulesFor 0, 'seconds'
+	}
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.cloud:spring-cloud-starter-feign')
+
+
+
+	compile ('com.huajin.springcloud:huajin-springcloud-config')
+	compile ('com.huajin.springcloud:huajin-springcloud-common')
+	compile ('com.huajin.springcloud:commanderclient:0.0.1-SNAPSHOT')
+	compile ('com.huajin.springcloud:timelineserverclient')
+	compile ('com.huajin.springcloud:queryserverclient')
+	compile ('com.huajin.springcloud:listingserverclient')
+	
+	compile ('io.springfox:springfox-swagger2:2.6.1')
+	compile ('io.springfox:springfox-swagger-ui:2.6.1')
+	compile ('org.springframework.boot:spring-boot-starter-web')
+ 	compile ('org.springframework.boot:spring-boot-starter-jdbc')
+	compile ('org.springframework.boot:spring-boot-starter-actuator')
+	compile ('org.springframework.cloud:spring-cloud-starter-eureka')
+	compile ('org.springframework.cloud:spring-cloud-starter-feign')
+	compile ('org.springframework.cloud:spring-cloud-starter-hystrix')
+	//compile ('org.springframework.cloud:spring-cloud-starter-sleuth')
+	//compile ('org.springframework.cloud:spring-cloud-sleuth-stream')
+	//compile ('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
+	
+	compile ('org.apache.commons:commons-lang3:3.4')
+	compile ('org.apache.httpcomponents:httpmime:4.3.1')
+	compile ('org.apache.httpcomponents:httpclient-cache:4.3.1')
+
+	compile ('org.apache.logging.log4j:log4j-core:2.3')
+	compile ('org.apache.logging.log4j:log4j-1.2-api:2.3')
+	
+	compile ('com.google.code.spring-crypto-utils:spring-crypto-utils:1.4.0')
+	
+	// 为兼容旧版 mybatis而强制降低 mybatis spring boot starter
+	compile ('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.0.2')
+	compile ('org.mybatis:mybatis:3.2.8')
+	//compile ('org.mybatis:mybatis-spring:1.2.2')
+	compile ('mysql:mysql-connector-java:5.1.38')
+	
+	compile ('org.apache.poi:poi-ooxml:3.15') {
+		// 排除 stax-api
+		exclude group:'stax', module:'stax-api'
+	}
+	
+	compile ('org.jboss.resteasy:jaxrs-api:2.2.3.GA')
+	compile ('org.jboss.resteasy:resteasy-spring:2.2.3.GA') {
+		// 排除 activation, jboss-logging, jboss-annotations-api
+		exclude group:'javax.activation', module:'activation'
+		exclude group:'commons-httpclient', module:'commons-httpclient'
+		exclude group:'org.jboss.resteasy', module:'resteasy-jettison-provider'
+	}
+	
+	compile ('com.lmax:disruptor:3.3.2')
+	compile ('org.gearman:gearman-java:0.6') {
+		exclude group:'org.slf4j', module:'slf4j-log4j12'
+	}
+
+	//dubbo
+	compile ("com.alibaba:dubbo:2.5.3"){
+        exclude group:'org.springframework', module:'spring'
+    }
+	compile ("com.github.sgroschupf:zkclient:0.1") {
+		// 排除 log4j 用 log4j2
+		exclude group:'log4j', module:'log4j'
+	}
+	
+	compile ('com.alibaba:fastjson:1.2.29')
+	compile ('com.alibaba:druid:1.0.26')
+	compile ('javax.servlet:javax.servlet-api:3.1.0')
+	
+	compile ('com.rabbitmq:amqp-client:3.6.3')
+	compile ('org.springframework.amqp:spring-rabbit:1.5.6.RELEASE') {
+		exclude group:'org.slf4j', module:'jcl-over-slf4j'
+		exclude group:'com.rabbitmq', module:'http-client'
+		exclude group:'org.springframework', module:'spring-tx'
+		exclude group:'org.springframework', module:'spring-web'
+		exclude group:'org.springframework', module:'spring-core'
+		exclude group:'org.springframework', module:'spring-context'
+	}
+	
+	
+	
+	
+	runtime('com.h2database:h2')
+}
